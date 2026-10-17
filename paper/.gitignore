@@ -1,0 +1,14 @@
+# LaTeX build intermediates (keep main.pdf and main.bbl, which arXiv needs)
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.blg
+arxiv_pkg/
+_ziptest/
+arxiv_flat/
+/main_anon.pdf
+/main_anon.bbl

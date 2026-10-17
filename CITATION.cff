@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite the paper and the Zenodo weights record."
+type: software
+title: "MelGuard: reproduction artifact (detector, adaptive attacker, sealed-evaluation harness)"
+version: 1.0.0
+date-released: 2026-10-17
+license: Apache-2.0
+repository-code: "https://github.com/dbugom/melguard-artifact"
+authors:
+  - family-names: Razavi
+    given-names: Mohammad
+    orcid: "https://orcid.org/0009-0006-7716-3803"
+    affiliation: Integrated Technologies
+  - family-names: Al Naamany
+    given-names: Khubayb Ahmed
+    orcid: "https://orcid.org/0000-0003-2890-1831"
+    affiliation: Integrated Technologies
+identifiers:
+  - type: doi
+    value: "10.17605/OSF.IO/J5X2E"
+    description: "OSF pre-registration (2026-07-05)"
+  - type: doi
+    value: "10.5281/zenodo.22862486"
+    description: "Zenodo record with the frozen detector weights"
+preferred-citation:
+  type: generic
+  title: "MelGuard: A Pre-Registered Evaluation of a Passive Mel-Spectrogram Gateway against White-Box Detector-Aware Sub-Second Audio-Jailbreak Triggers"
+  year: 2026
+  authors:
+    - family-names: Razavi
+      given-names: Mohammad
+      orcid: "https://orcid.org/0009-0006-7716-3803"
+    - family-names: Al Naamany
+      given-names: Khubayb Ahmed
+      orcid: "https://orcid.org/0000-0003-2890-1831"
+  notes: "arXiv preprint; add the arXiv identifier here after posting (see paper/arxiv/ARXIV-RUNBOOK.md step 6)."

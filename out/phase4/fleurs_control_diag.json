@@ -1,0 +1,41 @@
+{
+  "phase": 4,
+  "diagnostic": "fleurs_control",
+  "tau_op": 0.0012052711774595082,
+  "target_fpr": 0.02,
+  "n": 900,
+  "overall_fpr_at_tau_op": 0.0178,
+  "prob_stats": {
+    "mean_prob": 0.004049,
+    "p50": 1.4e-05,
+    "p98": 0.000889,
+    "max": 0.946178
+  },
+  "per_language": {
+    "en": {
+      "n": 300,
+      "fpr_at_tau_op": 0.0533,
+      "mean_prob": 0.012106,
+      "p50": 4.9e-05,
+      "p98": 0.132555,
+      "max": 0.946178
+    },
+    "es": {
+      "n": 300,
+      "fpr_at_tau_op": 0.0,
+      "mean_prob": 1.4e-05,
+      "p50": 1.1e-05,
+      "p98": 4.3e-05,
+      "max": 0.000126
+    },
+    "zh-CN": {
+      "n": 300,
+      "fpr_at_tau_op": 0.0,
+      "mean_prob": 2.6e-05,
+      "p50": 8e-06,
+      "p98": 0.000177,
+      "max": 0.000449
+    }
+  },
+  "note": "FLEURS = benign control (all label 0); FPR only. tau_op frozen on dev, NOT retuned here. CommonVoice held-out remains sealed."
+}

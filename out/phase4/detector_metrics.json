@@ -1,0 +1,47 @@
+{
+  "phase": 4,
+  "weights": "out/phase4/detector_gd_best.pt",
+  "dev_auc": 1.0,
+  "tau_op": 0.0012052711774595082,
+  "target_dev_fpr": 0.02,
+  "fpr_at_tau_op": 0.02,
+  "tpr_at_tau_op": 1.0,
+  "n_dev": 2824,
+  "n_dev_adv": 124,
+  "per_language_fpr": {
+    "en": {
+      "n": 1500,
+      "fpr_at_tau_op": 0.0287
+    },
+    "es": {
+      "n": 600,
+      "fpr_at_tau_op": 0.0117
+    },
+    "zh-CN": {
+      "n": 600,
+      "fpr_at_tau_op": 0.0067
+    }
+  },
+  "per_corpus_fpr": {
+    "commonvoice18": {
+      "n": 900,
+      "fpr_at_tau_op": 0.0211
+    },
+    "fleurs": {
+      "n": 900,
+      "fpr_at_tau_op": 0.0156
+    },
+    "librispeech": {
+      "n": 900,
+      "fpr_at_tau_op": 0.0233
+    }
+  },
+  "per_language_auc": {
+    "en": 1.0
+  },
+  "auc_bias_below_0.80": [],
+  "fpr_tolerance": 0.03,
+  "fpr_flags": [],
+  "frozen": true,
+  "note": "tau_op frozen on multi-corpus dev benign for FPR=0.02; held-out (CommonVoice test/validation) sealed & untouched."
+}

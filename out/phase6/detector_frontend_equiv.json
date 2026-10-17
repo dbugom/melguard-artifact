@@ -1,0 +1,53 @@
+{
+  "phase": 6,
+  "step": "prep_differentiable_detector_frontend",
+  "seed": 1729,
+  "clip": "/workspace/data/clips/commonvoice18/0001c6620420ffbf3558.flac",
+  "weights": "out/phase4/detector_gd_best.pt",
+  "load_info": {
+    "missing": 0,
+    "unexpected": 0
+  },
+  "tolerances": {
+    "iv_max_abs_diff": 0.001,
+    "prob_abs_diff": 0.001
+  },
+  "forward_equivalence": {
+    "iv_shape": [
+      1,
+      1024,
+      128
+    ],
+    "iv_max_abs_diff": 0.0004870891571044922,
+    "iv_mean_abs_diff": 3.122445377812255e-07,
+    "ref_logit": [
+      -10.811212539672852
+    ],
+    "torch_logit": [
+      -10.811212539672852
+    ],
+    "ref_prob": [
+      2.01716447918443e-05
+    ],
+    "torch_prob": [
+      2.01716447918443e-05
+    ],
+    "prob_abs_diff": 0.0
+  },
+  "grad_reaches_waveform": {
+    "p_det": [
+      2.01716447918443e-05
+    ],
+    "evasion_term_log1m_p": -2.0171848518657498e-05,
+    "grad_is_finite": true,
+    "grad_abs_sum": 0.29220059514045715,
+    "grad_nonzero_frac": 0.9900000691413879
+  },
+  "checks": {
+    "iv_parity": true,
+    "prob_parity": true,
+    "grad_finite": true,
+    "grad_nonzero": true
+  },
+  "passed": true
+}

@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+# no trigger waveforms in the artifact (dual-use: hashes only)
+*.wav
+*.flac
+*.npy
+# detector weights released separately (>100MB)
+*.pt
+# build/latex intermediates
+*.aux
+*.log
+*.out

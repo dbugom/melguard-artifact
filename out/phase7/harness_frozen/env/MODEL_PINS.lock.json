@@ -1,0 +1,117 @@
+{
+  "_comment": "Locked model + library + platform pins (spec.lock.md sec5, brief sec5.1). DO NOT upgrade. orchestration/check_env.py asserts the running box matches these.",
+
+  "models": {
+    "salmonn": {
+      "_SPEC_CHANGE": "005 (2026-07-14): hf_repo/hf_revision corrected — 'tsinghua-ee/SALMONN-13B'@e4f5870 was a 404. See out/SPEC-CHANGE-LOG.md.",
+      "hf_repo": "tsinghua-ee/SALMONN",
+      "hf_revision": "e0e903b8a07f623616d1b950b8846b4535b76666",
+      "ckpt_file": "salmonn_v1.pth",
+      "ckpt_sha256": "709c665b25ef05b48985584ec31d6f15018b754abf47b9c33ed9a278285bbae0",
+      "role": "white-box target f_S",
+      "impl_reference": "https://github.com/bytedance/SALMONN",
+      "impl_vendored": "salmonn/upstream (Apache-2.0, rev e0e903b8; see salmonn/VENDORED.md)",
+      "components": {
+        "whisper": {
+          "hf_repo": "openai/whisper-large-v2",
+          "hf_revision": "ae4642769ce2ad8fc292556ccea8e901f1530655",
+          "role": "speech encoder (encoder only), fp16"
+        },
+        "vicuna": {
+          "hf_repo": "lmsys/vicuna-13b-v1.1",
+          "hf_revision": "1acf26f93742fafe91562253ec0e5d94e40a8bea",
+          "role": "LLM backbone (Vicuna-13B v1.1 — the version SALMONN-13B v1 was trained against)"
+        },
+        "beats": {
+          "hf_repo": "WeiChihChen/BEATs_iter3_plus_AS2M_finetuned_on_AS2M_cpt2",
+          "hf_revision": "172e4071a2912392d9151c70750b9a12f55fc54e",
+          "file": "BEATs_iter3_plus_AS2M_finetuned_on_AS2M_cpt2.pt",
+          "sha256": "e5815275a04b6885e7b8af63d120b29bffae2cd2225cf4915e1ec6d819d3022c",
+          "official_source": "Fine-tuned BEATs_iter3+ (AS2M) cpt2, distributed by Microsoft unilm via OneDrive; hash-pinned HF mirror used for scriptability",
+          "role": "audio-event encoder, fp16, frozen"
+        }
+      },
+      "architecture": {
+        "speech_qformer_token_num": 1,
+        "speech_qformer_layer": 2,
+        "lora": true,
+        "lora_rank": 8,
+        "lora_alpha": 32,
+        "lora_dropout": 0.1,
+        "second_per_frame": 0.333333,
+        "second_stride": 0.333333,
+        "prompt_pattern": "USER: <Speech><SpeechHere></Speech> {}\nASSISTANT:"
+      },
+      "quantization": "Vicuna backbone 4-bit NF4 (bitsandbytes, double-quant, fp16 compute); Whisper+BEATs encoders fp16 for clean input-gradients"
+    },
+    "detector_backbone": {
+      "_SPEC_CHANGE": "006 (2026-07-14): hf_revision b7fcca5 was a 404 -> corrected to f826b80d; 'AST-tiny 192-dim ~22M' (brief 5.3) reconciled to the pinned full AST (hidden 768, ~86M) + retrained head (head first Linear 192->768). See out/SPEC-CHANGE-LOG.md.",
+      "hf_repo": "MIT/ast-finetuned-audioset-10-10-0.4593",
+      "hf_revision": "f826b80d28226b62986cc218e5cec390b1096902",
+      "role": "g_D backbone; AudioSet-pretrained full AST, binary classification head retrained from scratch",
+      "arch_family": "ASTForAudioClassification (audio-spectrogram-transformer)",
+      "hidden_size": 768,
+      "num_hidden_layers": 12,
+      "num_mel_bins": 128,
+      "head": {
+        "pool": "mean_over_time",
+        "layers": ["Linear(768->64)", "GELU", "Dropout(0.1)", "Linear(64->1)", "Sigmoid"],
+        "note": "brief 5.3 head verbatim except first Linear input dim 192->768 (forced by pinned hidden_size=768)"
+      },
+      "train": {
+        "_source": "brief 5.3 (transcribed; unchanged by SPEC-CHANGE-006)",
+        "freeze": "backbone frozen except last 2 transformer layers",
+        "loss": "BCE + class-balanced reweight (pos:neg ~1:11.8 in train)",
+        "optimizer": "AdamW",
+        "lr_backbone": 3e-5,
+        "lr_head": 3e-4,
+        "schedule": "cosine warmup",
+        "epochs": 20,
+        "batch_size": 32,
+        "sample_rate_hz": 16000,
+        "clip_seconds": 4
+      }
+    },
+    "transfer_exploratory": {
+      "_SPEC_CHANGE": "011 (2026-07-15): hf_revision was MISSING (the other two model pins carry one) -> pinned to the verified current main. Repo existence, revision resolution and transformers-4.46.3 Qwen2Audio support all verified. Pre-reg-NEUTRAL (Qwen does not appear in OSF j5x2e). See out/SPEC-CHANGE-LOG.md.",
+      "hf_repo": "Qwen/Qwen2-Audio-7B-Instruct",
+      "hf_revision": "0a095220c30b7b31434169c3086508ef3ea5bf0a",
+      "role": "Phase 8 black-box transfer only (attack-success, not detector AUC)",
+      "verified_2026_07_15": "repo exists (public, not gated, 15 files); revision resolves; transformers 4.46.3 exposes Qwen2AudioForConditionalGeneration + Qwen2AudioProcessor; AutoConfig -> Qwen2AudioConfig (model_type=qwen2_audio). 7B weights NOT yet load-tested on GPU (Phase 8)."
+    }
+  },
+
+  "platform": {
+    "os": "Ubuntu 22.04",
+    "cuda": "12.4",
+    "cudnn": "9.x",
+    "nvidia_driver_min": "550"
+  },
+
+  "python": "3.11",
+
+  "libraries": {
+    "torch": "2.5.1+cu124",
+    "torchaudio": "2.5.1",
+    "transformers": "4.46.x",
+    "bitsandbytes": "0.44.x",
+    "langgraph": "0.2.74",
+    "librosa": "0.10.2",
+    "soundfile": "0.12.1"
+  },
+
+  "reproducibility": {
+    "seeds": [1729, 31337, 271828],
+    "deterministic_cuda": true,
+    "env": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "PYTHONHASHSEED": "0"
+    }
+  },
+
+  "hardware": {
+    "detector_and_dataprep": "RTX 4090 24GB",
+    "attack_and_eval": "A100-40G preferred (A100-80G fallback for joint f_S+g_D backward)",
+    "apple_silicon": "not supported as primary; M4 Max fp16 inference/figures only"
+  }
+}

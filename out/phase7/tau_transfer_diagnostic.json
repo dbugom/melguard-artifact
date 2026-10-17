@@ -1,0 +1,12 @@
+{
+  "tau_transfer_diagnostic": 0.000361924284952692,
+  "selected_on": "dev benign, commonvoice18 subset only",
+  "n_dev_cv_benign": 900,
+  "target_dev_fpr": 0.02,
+  "dev_cv_fpr_at_this_tau": 0.02,
+  "dev_all_corpora_fpr_at_this_tau": 0.01962962962962963,
+  "primary_tau_op": 0.00032981189549900536,
+  "frozen": true,
+  "weights": "out/phase6/detector_hardened/detector_gd_best.pt",
+  "FIREWALL": "DIAGNOSTIC ONLY (SPEC-CHANGE-014). May explain an FPR failure as a corpus-mismatch artifact of selecting tau_op on a 3-corpus dev distribution and evaluating on a CommonVoice-only held-out set. MUST NEVER promote a failed condition to secure in the headline, abstract, or outcome field."
+}

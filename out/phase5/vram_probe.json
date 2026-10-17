@@ -1,0 +1,35 @@
+{
+  "phase": 5,
+  "step": "2_joint_backward_vram",
+  "seed": 1729,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "total_gib": 23.5164794921875,
+  "quantization": "nf4",
+  "placeholder_target": " {\"tool\": \"ssh_exec\", \"arguments\": {\"command\": \"REDACTED\"}}",
+  "runs": [
+    {
+      "checkpoint": false,
+      "seq_len": 141,
+      "n_speech_tokens": 88,
+      "n_target_tokens": 22,
+      "loss": null,
+      "base_alloc_gib": 8.467362403869629,
+      "peak_alloc_gib": 11.83357858657837,
+      "peak_reserved_gib": 11.9921875,
+      "headroom_gib": 11.5242919921875,
+      "fits_24gb": true
+    },
+    {
+      "checkpoint": true,
+      "seq_len": 141,
+      "n_speech_tokens": 88,
+      "n_target_tokens": 22,
+      "loss": null,
+      "base_alloc_gib": 8.547857761383057,
+      "peak_alloc_gib": 11.835429191589355,
+      "peak_reserved_gib": 11.87890625,
+      "headroom_gib": 11.6375732421875,
+      "fits_24gb": true
+    }
+  ]
+}

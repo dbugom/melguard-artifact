@@ -1,0 +1,127 @@
+{
+  "_comment": "Locked SHA-256 data manifest. POPULATED IN PHASE 1 by data/manifests.py. The eval harness aborts if any listed file's hash drifts. In Phase 0 this is an empty skeleton; test_manifest_hashes.py passes vacuously until entries exist.",
+  "schema_version": 2,
+  "sealed": false,
+  "sealed_at_utc": null,
+  "sealed_archive_sha256": null,
+  "corpora": {
+    "librispeech_train_clean_100": {
+      "source": "OpenSLR 12",
+      "license": "CC BY 4.0",
+      "files": []
+    },
+    "librispeech_dev_clean": {
+      "source": "OpenSLR 12",
+      "license": "CC BY 4.0",
+      "files": []
+    },
+    "commonvoice_18_en": {
+      "source": "fsicoli/common_voice_18_0",
+      "license": "CC0",
+      "split": "train(->benign_train) + other(->benign_val) + test(->benign_auc) + validation(->benign_fpr)",
+      "files": [],
+      "_spec_change": "SPEC-CHANGE-003: path fix from mozilla-foundation/common_voice_18_0 (404); same CV 18.0 release, community-mirrored. SPEC-CHANGE-007: adds train->benign_train and other->benign_val (disjoint from the sealed test/validation held-out). SPEC-CHANGE-008: native-sr decode + single shared resampler."
+    },
+    "commonvoice_18_zh_CN": {
+      "source": "fsicoli/common_voice_18_0",
+      "license": "CC0",
+      "split": "train(->benign_train) + other(->benign_val) + test(->benign_auc) + validation(->benign_fpr)",
+      "files": []
+    },
+    "commonvoice_18_es": {
+      "source": "fsicoli/common_voice_18_0",
+      "license": "CC0",
+      "split": "train(->benign_train) + other(->benign_val) + test(->benign_auc) + validation(->benign_fpr)",
+      "files": []
+    },
+    "fleurs": {
+      "source": "google/fleurs",
+      "license": "CC BY 4.0",
+      "subsets": [
+        "en_us",
+        "cmn_hans_cn",
+        "es_419"
+      ],
+      "split": "train(->benign_train) + validation(->benign_val) + test(->benign_control)",
+      "files": [],
+      "_spec_change": "SPEC-CHANGE-007: FLEURS now spans train/validation/test (disjoint) -> benign_train/benign_val/benign_control (was validation-only control). SPEC-CHANGE-008: native-sr decode + single shared resampler."
+    },
+    "jalmbench_public": {
+      "source": "AnonymousUser000/JALMBench (arXiv:2505.17568)",
+      "subset": "audio-originated attacks (AdvWave/SSJ/BoN/AMSE)",
+      "attack_id_field": "attack_family",
+      "_spec_change": "SPEC-CHANGE-004: single public-adv source = JALMBench audio-originated subset (bundles AdvWave waveforms); replaces spec \u00a73.2 separate AdvWave+JALMBench framing",
+      "files": []
+    }
+  },
+  "splits": {
+    "generated_train_s1": {
+      "n": 0,
+      "files": []
+    },
+    "generated_dev_s2": {
+      "n": 0,
+      "files": []
+    },
+    "generated_held_s3": {
+      "n": 0,
+      "files": []
+    },
+    "public_train": {
+      "n": 0,
+      "files": []
+    },
+    "public_dev": {
+      "n": 0,
+      "files": []
+    },
+    "public_held": {
+      "n": 0,
+      "files": []
+    },
+    "benign_held_auc": {
+      "n": 0,
+      "files": []
+    },
+    "benign_fpr_eval": {
+      "n": 0,
+      "files": []
+    }
+  },
+  "total_clips": 26423,
+  "manifest_sha256_file": "MANIFEST.sha256 (on DATA_ROOT / R2, not git)",
+  "splits_summary": {
+    "benign_auc": {
+      "count": 5000,
+      "rollup_sha256": "059eeeaf7c7e103ec5033b5b8c01ad2a759fe189286c070f3c11505d949e2da3"
+    },
+    "benign_control": {
+      "count": 900,
+      "rollup_sha256": "ea0931104508e680e6b58b85c2bdd7b94218269580f74e17db6117b950b0641a"
+    },
+    "benign_fpr": {
+      "count": 5000,
+      "rollup_sha256": "5e51cd94ef8d63a9d6cb8ff8355c6892bb7e9984404f573e0a0d1ffb86e6a7a0"
+    },
+    "benign_train": {
+      "count": 11999,
+      "rollup_sha256": "0abd703f6a48ecc9b8a5151b52cc01f1911f160698b2af454c5c0482883355af"
+    },
+    "benign_val": {
+      "count": 2700,
+      "rollup_sha256": "b1d2b4011cbb3ee7b20a80f8efd0b0f54954cc8295ced1720005f0794f095de3"
+    },
+    "public_dev": {
+      "count": 124,
+      "rollup_sha256": "99cd3e1e2bfb598590d7c487d80f32aed6153894546a02720d16793279ca03fc"
+    },
+    "public_held": {
+      "count": 123,
+      "rollup_sha256": "01830d5c66f176e31609881587172ecc1ba2f2f25da29f68e0c57a35dff67ae1"
+    },
+    "public_train": {
+      "count": 577,
+      "rollup_sha256": "95252f7c1220d0a299e94eda2ff4f2e90f015784b6309bb75b2e65396a0c9e41"
+    }
+  }
+}

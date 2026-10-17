@@ -1,0 +1,22 @@
+{
+  "phase": 2,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "total_vram_mib": 24080.9,
+  "peak_alloc_mib": 8996.3,
+  "peak_reserved_mib": 9196.0,
+  "fits_24gb": true,
+  "quantization": "nf4",
+  "seed": 1729,
+  "clip_path": "/workspace/data/clips/librispeech/000b22e578dd1d45050b.flac",
+  "clip_sha256": "f4359dd0036622a97527cee16e48edf34c8e1e45934684cc51b0a47303118593",
+  "prompt": "Please transcribe the speech.",
+  "response": "Was white cloud a shrewd sinister savage half winnebago and half sac he claimed to be a prophet he was black hawk's evil genius during the uprising of eighteen thirty two and in many ways",
+  "response_reproducible": true,
+  "ckpt_unexpected_real": [],
+  "ckpt_unexpected_benign_rotary": 40,
+  "ckpt_missing_key_count": 1112,
+  "torch": "2.5.1+cu124",
+  "python": "3.11.10",
+  "model_pins_sha": "62a213c412384e54",
+  "gate_pass": true
+}

@@ -1,0 +1,48 @@
+{
+  "phase": 5,
+  "step": "1_differentiable_frontend",
+  "seed": 1729,
+  "clip": "/workspace/data/clips/commonvoice18/0001c6620420ffbf3558.flac",
+  "clip_seconds": 6.0,
+  "quantization": "nf4",
+  "tolerances": {
+    "mel_max_abs_diff": 0.05,
+    "embed_cosine_min": 0.999,
+    "embed_rel_mean_diff": 0.05
+  },
+  "forward_equivalence": {
+    "mel_shape": [
+      1,
+      80,
+      3000
+    ],
+    "mel_max_abs_diff": 1.2755393981933594e-05,
+    "mel_mean_abs_diff": 1.7028053633794116e-08,
+    "embed_shape": [
+      1,
+      88,
+      5120
+    ],
+    "embed_max_abs_diff": 0.01171875,
+    "embed_mean_abs_diff": 0.0007641963893547654,
+    "embed_rel_mean_diff": 0.001466073445044458,
+    "embed_cosine_min": 0.9999915957450867,
+    "embed_cosine_mean": 0.9999986290931702
+  },
+  "grad_reaches_waveform": {
+    "loss": 0.4532320499420166,
+    "delta_len": 16000,
+    "grad_is_finite": true,
+    "grad_abs_sum": 57.776390075683594,
+    "grad_abs_max": 0.15414494276046753,
+    "grad_nonzero_frac": 1.0
+  },
+  "checks": {
+    "mel_parity": true,
+    "embed_cosine": true,
+    "embed_rel": true,
+    "grad_finite": true,
+    "grad_nonzero": true
+  },
+  "passed": true
+}

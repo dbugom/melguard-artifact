@@ -1,0 +1,70 @@
+{
+  "study": "codec_vorbis",
+  "phase": 8,
+  "confirmatory": false,
+  "note": "EXPLORATORY robustness sub-study (344-83) on NON-SEALED data. Not part of the Phase-7 headline; the sealed held-out set is burned and untouched.",
+  "tau_op": 0.00032981189549900536,
+  "weights_sha256": "1a6392ed5750e99b691c19dbd294cb89a943c600a68c2908022432c5bad71265",
+  "benign_fpr": {
+    "overall": {
+      "n": 900,
+      "k": 25,
+      "fpr": 0.027778,
+      "wilson95": [
+        0.018885,
+        0.040685
+      ]
+    },
+    "by_language": {
+      "en": {
+        "n": 300,
+        "k": 25,
+        "fpr": 0.083333,
+        "wilson95": [
+          0.057081,
+          0.120122
+        ]
+      },
+      "zh-CN": {
+        "n": 300,
+        "k": 0,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.012643
+        ]
+      },
+      "es": {
+        "n": 300,
+        "k": 0,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.012643
+        ]
+      }
+    }
+  },
+  "detector_auc": {
+    "0.0": {
+      "auc": 1.0,
+      "n_pos": 75,
+      "by_language": {
+        "en": 1.0,
+        "zh-CN": 1.0,
+        "es": 1.0
+      }
+    },
+    "1.0": {
+      "auc": 0.989067,
+      "n_pos": 75,
+      "by_language": {
+        "en": 0.9592,
+        "zh-CN": 1.0,
+        "es": 1.0
+      }
+    }
+  },
+  "n_adv": 150,
+  "n_benign": 900
+}

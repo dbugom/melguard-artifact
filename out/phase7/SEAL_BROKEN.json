@@ -1,0 +1,61 @@
+{
+  "unsealed": true,
+  "provenance": {
+    "git_rev": "unknown",
+    "harness_sha256": {
+      "detector/sealed_eval.py": "5d762560a7b797a9eb37e5a437b9acfddc098a1ca8d5401a850aac54f3582a44",
+      "detector/phase7_eval.py": "3578f4eaedb9e3e37aead7df87c4b04e29e1e49885c198508986c9c3c21e4bcf",
+      "detector/model.py": "556273a7f9360c8a913fabc1ff2e8a8d253ffd3ffc595d0d05c89aee8b02e96b",
+      "detector/infer.py": "da38778f2f0a5b381c9471fb41770194eb04ceb9f0b652bff80a99732ba3b00c",
+      "detector/data.py": "2b26756d0c1c9966525faf19ddcb62b941654bbb189106c6db3cfb61aa2d37ae",
+      "attack/joint_pgd.py": "4b2fe9910efe7985150264efd1f6575bd1fd5d116b95e524bd20c02f88a999c4",
+      "env/NUMBER_LOCK.lock.json": "23ce18b1af055cd2e726584d81b017cf6109764364bf866784f5e9023f2c5916",
+      "env/MODEL_PINS.lock.json": "062cc763fa322c4b3852062fed3fe503bebfa3c707ec87a8e7fb5ff7bb022055",
+      "env/DATA_MANIFEST.lock.json": "586e99b4d0c9e4e513d16309199996773fabff807256564e47d162330ee4f97a"
+    },
+    "weights": "out/phase6/detector_hardened/detector_gd_best.pt",
+    "weights_sha256": "1a6392ed5750e99b691c19dbd294cb89a943c600a68c2908022432c5bad71265",
+    "tau_op": 0.00032981189549900536,
+    "tau_op_artifact": {
+      "artifact": "out/phase6/detector_hardened/detector_metrics.json",
+      "artifact_sha256": "2dd0d48a62147afaad4ec3b95c58af4d7807fe8818536d12131567dcd1d3958c",
+      "tau_op": 0.00032981189549900536,
+      "artifact_weights_field": "out/phase6/detector_hardened/detector_gd_best.pt"
+    },
+    "n_boot": 1000,
+    "seed": 0,
+    "decision_rule": "holm_auc",
+    "eval_views": [
+      [
+        "primary",
+        "gen-only",
+        "primary"
+      ],
+      [
+        "secondary_composition",
+        "gen+public",
+        "primary"
+      ],
+      [
+        "threshold_transfer_diagnostic",
+        "gen-only",
+        "diagnostic"
+      ]
+    ],
+    "actuation_scope": "generated",
+    "lambda_det": [
+      0.0,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "held_attack_seed": 271828,
+    "tau_diagnostic": 0.000361924284952692,
+    "tau_diagnostic_artifact": {
+      "artifact": "/workspace/melguard/out/phase7/tau_transfer_diagnostic.json",
+      "artifact_sha256": "dc7668f73f85330cf84a6dbc7c99a1c24cc7dec8c1a42ded4db071dc98e165e6",
+      "tau": 0.000361924284952692
+    }
+  },
+  "note": "Written BEFORE reading any sealed clip. The held-out set is now burned for any further model selection (CLAUDE.md non-negotiable #2), whether or not this run completed. To finish a crashed run use --resume-unseal; parameters must match exactly."
+}

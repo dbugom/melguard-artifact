@@ -1,0 +1,27 @@
+{
+  "phase": 6,
+  "lambda": 1.0,
+  "detector": "hardened (out/phase6/detector_hardened)",
+  "tau_op": 0.00033,
+  "N": 225,
+  "attack_wins_best_over_traj": {
+    "k": 204,
+    "rate": 0.9067,
+    "wilson95": [
+      0.8615,
+      0.9381
+    ]
+  },
+  "attack_wins_final_delta": {
+    "k": 152,
+    "rate": 0.6756,
+    "wilson95": [
+      0.6119,
+      0.7333
+    ]
+  },
+  "final_actuation_alone": 0.8444,
+  "final_evasion_alone": 0.7911,
+  "detector_secure_at_lambda1": false,
+  "note": "GENERATION-time result vs the hardened g_D; the pre-registered sealed eval (frozen detector, held-out s3, CI-gated) is Phase 7."
+}
